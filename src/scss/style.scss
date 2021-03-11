@@ -1,0 +1,167 @@
+$yelow: #FCDD6F;
+$delete: #E37171;
+$login: #C7C7C7;
+$border-item:#C9C9C9;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+.widget {
+  margin: 100px auto;
+  width: 377px;
+  overflow: hidden;
+
+  &__header {
+    position: relative;
+    background-color: $yelow;
+    padding-top: 8px;
+    padding-bottom: 4px;
+
+    img {
+      display: block;
+      margin: auto;
+    }
+
+    span {
+      padding-top: 2px;
+      display: block;
+      text-align: center;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+    &::before {
+      content: '';
+      height: 3px;
+      width: 100%;
+      background-color: #111;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &__footer {
+    padding: 8px 0;
+    background-color: $yelow;
+
+    .refresh {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 21px;
+      cursor: pointer;
+
+      &:hover img {
+        animation: rotate 1200ms;
+      }
+
+      img {
+        margin-right: 8px;
+        transition: all ease-in-out;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    border-bottom: 1px solid $border-item;
+    transition: transform 1000ms ease-in-out;
+  }
+
+  .githubUser {
+    display: flex;
+    align-items: center;
+    min-width: 327px;
+    padding: 20px 0 20px 16px;
+    position: relative;
+    text-decoration: none;
+    color:#111;
+
+    &__avatar {
+      border-radius: 50%;
+      width: 72px;
+      height: 72px;
+    }
+
+    &__description {
+      display: inline-block;
+      margin-left: 14px;
+
+    }
+
+    &__name {
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 400;
+    }
+
+    &__address {
+      display: flex;
+      align-items: flex-end;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+    }
+
+    &__login {
+      color: $login;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+    }
+  }
+
+  .deleteUser {
+    background-color: $delete;
+    padding: 28px;
+  }
+}
+
+.arrowTarget{
+  display: flex;
+  z-index: 2;
+}
+.arrow{
+  position: relative;
+  height: 100%;
+  width: 50px;
+  right: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    height: 1px;
+    width: 28px;
+    background-color: #111;
+    position: absolute;
+    right: 8px;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+    top: 40%;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+    top:58%;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

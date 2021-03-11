@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "animate.css": "^4.1.1",
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "rxjs": "^6.6.6",
+    "typescript": "^4.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.13.1",

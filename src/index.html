@@ -4,9 +4,47 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
+  <div class="widget">
+    <div class="widget__header">
+      <img src="./img/github.svg" alt="github" class="widget__icon">
+      <span>За кем следить на Github</span>
+    </div>
+    <div class="widget__content">
+      <template class="templateWidget">
+        <div class="widget__item">
+          <a class="githubUser">
+            <img src="./img/1.png" alt="" class="githubUser__avatar">
+            <div class="githubUser__description">
+              <span class="githubUser__name">Tom Preston-Werner</span>
+              <div class="githubUser__address">
+                <img src="./img/marker.png" alt="marker" class="addressMarker">
+                <span class="address__text">San Francisco</span>
+              </div>
+              <span class="githubUser__login">@mojombo</span>
+            </div>
+          </a>
+          <div class="arrowTarget">
+            <div class="arrow">
   
+            </div>
+            <div class="deleteUser">
+              <img src="./img/trash.png" alt="" class="trash">
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+    <div class="widget__footer">
+      <div class="refresh">
+        <img src="./img/refresh.png" alt="refresh">
+        <span>REFRESH</span>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
