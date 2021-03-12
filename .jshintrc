@@ -3,7 +3,7 @@
   "browser": true,
   "jquery": true,
   "node": true,
-  "esversion": 8,
+  "esversion": 9,
   "camelcase": true,
   "eqeqeq": true,
   "indent": 2,
