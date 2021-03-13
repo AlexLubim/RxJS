@@ -8,7 +8,15 @@ const actionTakeUser = () => {
       try{
         const user = await fetch('https://api.github.com/users');
         const result = await user.json();
-        dispatch({type: TAKEUSER,payload:result});
+        result.map(async (item)=>{
+          try{
+            const info = await fetch(`https://api.github.com/users/${item.login}`);
+            const infoResult = await info.json();
+            dispatch({type: TAKEUSER,payload:infoResult});
+          }catch(err){
+            alert(err);
+          }
+        });
       }catch(err){
         alert(err);
       }
@@ -21,21 +29,6 @@ const actionRefresh = () => {
     type:CLICKREFRESH
   };
 };
-
-const infoUser = (user) => {
-  return function(dispatch){
-    (async ()=>{
-      try{
-        const infoUser = await fetch(`https://api.github.com/users/${user.login}`);
-        const result = await infoUser.json();
-        dispatch({type: INFOUSER,payload:result});
-      }catch(err){
-        alert(err);
-      }
-    })();
-  };
-};
-
 const actionNewUser = () =>{
   return{
     type: NEWUSER
@@ -45,6 +38,5 @@ const actionNewUser = () =>{
 export {
   actionTakeUser,
   actionRefresh,
-  infoUser,
   actionNewUser
 };

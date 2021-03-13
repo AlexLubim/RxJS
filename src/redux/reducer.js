@@ -8,7 +8,7 @@ export function reducer(state,action){
     case TAKEUSER :
       return {
         ...state,
-        users: action.payload
+        users: [...state.users,action.payload]
       };
     case CLICKREFRESH:
       return {

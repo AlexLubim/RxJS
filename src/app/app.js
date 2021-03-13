@@ -3,7 +3,7 @@
 import {createStore,applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {reducer} from '../redux/reducer.js';
-import {actionTakeUser,actionRefresh,infoUser,actionNewUser} from '../redux/actions.js';
+import {actionTakeUser,actionRefresh,actionNewUser} from '../redux/actions.js';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 
@@ -39,22 +39,20 @@ function addListinerToTransform(user){
 store.subscribe(()=>{
   const state = store.getState();
   state.usersWidget.forEach(item => {
-    
     const newWidgetUser = templateWidget.cloneNode(true);
     newWidgetUser.querySelector('.githubUser').href = item.html_url;
     newWidgetUser.querySelector('.githubUser__avatar').src = item.avatar_url;
     newWidgetUser.querySelector('.githubUser__login').textContent = `@${item.login}`;
 
-    // newWidgetUser.querySelector('.address__text').textContent = state.user.location;
-    // newWidgetUser.querySelector('.githubUser__name').textContent = state.user.name; 
-
-    // store.dispatch(infoUser(item));
+    newWidgetUser.querySelector('.address__text').textContent = item.location;
+    newWidgetUser.querySelector('.githubUser__name').textContent = item.name; 
     addListinerToTransform(newWidgetUser.lastElementChild);
     widgetUserList.append(newWidgetUser);
   });
 });
 
 store.dispatch(actionTakeUser());
+
 
 footer.addEventListener('click',()=>{   //refresh
   store.dispatch(actionRefresh());
